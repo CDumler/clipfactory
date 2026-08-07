@@ -1,0 +1,3 @@
+{$PUBLIC_HOSTNAME} {
+    reverse_proxy clipfactory:8080
+}

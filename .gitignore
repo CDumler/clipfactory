@@ -1,0 +1,16 @@
+.DS_Store
+.env
+.env.local
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local runtime and credentials
+client_secret.json
+token.json
+secrets/
+data/
+
+# Editor and OS noise
+.idea/
+.vscode/

@@ -1,0 +1,42 @@
+services:
+  clipfactory:
+    build: .
+    container_name: clipfactory
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8080:8080"          # Web-API + öffentliche Media-URLs (für Instagram nötig)
+    volumes:
+      - ./data:/data         # Videos, Datenbank, Logs
+      - ./discovery.json:/config/discovery.json:ro
+      - ./secrets:/secrets   # YouTube token.json, client_secret.json
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8080/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 6g
+  caddy:
+    image: caddy:2
+    container_name: clipfactory-caddy
+    restart: unless-stopped
+    profiles: ["public"]
+    env_file: .env
+    depends_on:
+      clipfactory:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

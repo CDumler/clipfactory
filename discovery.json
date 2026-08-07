@@ -1,0 +1,22 @@
+{
+  "_hinweis": "Pro Profil: Streams werden automatisch nach Live-Viewern entdeckt, Clips nach Velocity (Views/Stunde) gerankt. extra_streamers werden IMMER zusaetzlich geprueft (auch offline), blocklist wird nie geclippt. facecams: optionale Crop-Koordinaten pro Streamer-Login (Quellbild 1920x1080), zum Ausmessen /frame/CLIPID aufrufen.",
+  "profiles": {
+    "de": {
+      "language": "de",
+      "top_n_streams": 25,
+      "min_live_viewers": 2000,
+      "extra_streamers": [],
+      "blocklist": []
+    },
+    "en": {
+      "language": "en",
+      "top_n_streams": 25,
+      "min_live_viewers": 8000,
+      "extra_streamers": [],
+      "blocklist": []
+    }
+  },
+  "facecams": {
+    "beispielstreamer": { "x": 1420, "y": 60, "w": 460, "h": 260 }
+  }
+}
