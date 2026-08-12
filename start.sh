@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
 
-mkdir -p data secrets/de secrets/en
+mkdir -p data/raw data/out data/tmp secrets/de secrets/en
 
 if [ ! -f .env ]; then
   cp .env.example .env

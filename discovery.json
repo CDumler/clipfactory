@@ -1,22 +1,19 @@
 {
-  "_hinweis": "Pro Profil: Streams werden automatisch nach Live-Viewern entdeckt, Clips nach Velocity (Views/Stunde) gerankt. extra_streamers werden IMMER zusaetzlich geprueft (auch offline), blocklist wird nie geclippt. facecams: optionale Crop-Koordinaten pro Streamer-Login (Quellbild 1920x1080), zum Ausmessen /frame/CLIPID aufrufen.",
+  "_hinweis": "Pro Profil: Streams werden automatisch nach Live-Viewern entdeckt, Clips nach Velocity (Views/Stunde) gerankt. extra_streamers werden IMMER zusaetzlich geprueft (auch offline), blocklist wird nie geclippt. Facecam-Ausschnitte werden pro Clip in der DB gespeichert; /frame/CLIPID zeigt ein Standbild zum Einkreisen.",
   "profiles": {
     "de": {
       "language": "de",
-      "top_n_streams": 25,
-      "min_live_viewers": 2000,
-      "extra_streamers": [],
-      "blocklist": []
+      "streamers": ["trymacs", "eliasn97", "niklaswilson", "xrohat", "marli", "krokoboss", "xthesolutiontv", "sidneyeweka", "coachlim", "mckytv"],
+      "hype_filter": { "enabled": true, "min_live_viewers": 3000, "spike_ratio": 2.5, "max_new_per_run": 5 },
+      "clips_per_streamer": 10,
+      "candidates_target": 15
     },
     "en": {
       "language": "en",
-      "top_n_streams": 25,
-      "min_live_viewers": 8000,
-      "extra_streamers": [],
-      "blocklist": []
+      "streamers": ["jynxzi", "lacy", "caseoh_", "kaicenat", "stableronaldo", "suburbbaby", "2xrakai", "ishowspeed", "xqc", "plaqueboymax", "fanum"],
+      "hype_filter": { "enabled": true, "min_live_viewers": 15000, "spike_ratio": 2.5, "max_new_per_run": 5 },
+      "clips_per_streamer": 10,
+      "candidates_target": 15
     }
-  },
-  "facecams": {
-    "beispielstreamer": { "x": 1420, "y": 60, "w": 460, "h": 260 }
   }
 }
